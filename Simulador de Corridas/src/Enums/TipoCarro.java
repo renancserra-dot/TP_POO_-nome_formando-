@@ -1,0 +1,5 @@
+package Enums;
+
+public enum TipoCarro {
+    F1, RALLY, GT, SUV, STATION_WAGON, PICKUP, VAN, ROADSTER, CONVERTIBLE, MICRO, SEDAN, TRUCK
+}
