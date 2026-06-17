@@ -3,17 +3,23 @@ package PimpMyRide;
 import Veiculos.Veiculo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Xzibit {
+
+public class Oficina {
     private ArrayList<Veiculo> garagem;
     private ArrayList<ItemCorrida> stock;
 
+
     public void imprimirStock() {
-        //todo
-        //imprime aleatoriamente 6 itens em stock, assim como as suas
-        //especificações. Mesmo que a oficina tenha um stock maior, apenas 6 devem ser mostrados de forma
-        //aleatória.
+
+      Collections.shuffle(stock);
+
+        for (int i = 0; i < 6; i++) {
+            System.out.println(stock.get(i));
+        }
     }
+
 
     public void imprimirGaragem() {
         //todo

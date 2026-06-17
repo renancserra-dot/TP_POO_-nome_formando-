@@ -6,13 +6,14 @@ public class Piloto {
 
     protected String nome;
     protected int fichasCorrida;
-    protected veiculoAtual (Veiculo);
+    protected Veiculo veiculoAtual;
     protected int vitorias;
 
-    public Piloto(String nome, int vitorias, int fichasCorrida) {
+    public Piloto(String nome, int fichasCorrida, Veiculo veiculoAtual, int vitorias) {
         this.nome = nome;
-        this.vitorias = vitorias;
         this.fichasCorrida = fichasCorrida;
+        this.veiculoAtual = veiculoAtual;
+        this.vitorias = vitorias;
     }
 
     public String getNome() {
@@ -29,6 +30,14 @@ public class Piloto {
 
     public void setFichasCorrida(int fichasCorrida) {
         this.fichasCorrida = fichasCorrida;
+    }
+
+    public Veiculo getVeiculoAtual() {
+        return veiculoAtual;
+    }
+
+    public void setVeiculoAtual(Veiculo veiculoAtual) {
+        this.veiculoAtual = veiculoAtual;
     }
 
     public int getVitorias() {
