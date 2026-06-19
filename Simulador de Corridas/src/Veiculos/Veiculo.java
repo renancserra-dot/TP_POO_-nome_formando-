@@ -1,5 +1,9 @@
 package Veiculos;
 
+import PimpMyRide.ItemCorrida;
+
+import java.util.ArrayList;
+
 public abstract class Veiculo {
 
     protected String marca;
@@ -8,6 +12,7 @@ public abstract class Veiculo {
     protected double pesoKg;
     protected int desgaste;
     protected int preco;
+    protected ArrayList<ItemCorrida> inventarioItem;
 
     public Veiculo(String marca, String modelo, int potenciaCV, double pesoKg, int desgaste, int preco) {
         this.marca = marca;
@@ -16,6 +21,7 @@ public abstract class Veiculo {
         this.pesoKg = pesoKg;
         this.desgaste = desgaste;
         this.preco = preco;
+        this.inventarioItem = new ArrayList<>();
     }
 
     public String getMarca() {
@@ -71,4 +77,15 @@ public abstract class Veiculo {
         System.out.println("Marca: " + this.marca + " | Modelo: " + this.modelo + " | Potencia CV: " + this.potenciaCV + " | Peso: " + this.pesoKg + " .Kg | Desgaste: " + this.desgaste + " | Preço: " + this.preco + " €.");
 
     }
+
+    /**
+     * Metodo para adicionar item ao Veiculo
+     * @param itemNovo
+     */
+
+    public void adicionarItem(ItemCorrida itemNovo) {
+        this.inventarioItem.add(itemNovo);
+        System.out.println("Item " + itemNovo.getNome() + " adicionado ao veículo.");
+    }
+
 }
