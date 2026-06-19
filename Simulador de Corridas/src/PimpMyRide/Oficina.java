@@ -29,12 +29,10 @@ public class Oficina {
 
       Collections.shuffle(stock);
 
-        for (ItemCorrida itemAtual : stock) {
-            int count = 0;
-            if (count < 6) {
-                count++;
-                System.out.println(itemAtual.getNome());
-            }
+      int limite = Math.min(stock.size(), 6);
+
+        for (int i = 0; i < limite; i++) {
+            stock.get(i).exibirDetalhes();
         }
     }
 

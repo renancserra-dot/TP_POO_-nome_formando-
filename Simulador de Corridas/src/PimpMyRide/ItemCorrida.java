@@ -25,4 +25,8 @@ public abstract class ItemCorrida {
     public void setPrecoFichasCorrida(int precoFichasCorrida) {
         this.precoFichasCorrida = precoFichasCorrida;
     }
+
+    public void exibirDetalhes() {
+        System.out.println(this.nome + " " + this.precoFichasCorrida);
+    }
 }
