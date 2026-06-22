@@ -17,6 +17,68 @@ public class Oficina {
         this.stock=new ArrayList<ItemCorrida>();
     }
 
+
+    // ---------- OFICINA: PIMP MY RIDE ----------
+
+    Oficina workshop = new Oficina(); // Criar a Oficina
+
+
+    // ---------- MODIFICAÇÃO ----------
+
+    Modificacao upgrade1 = new Modificacao("Pneus Slick", 15,  15, 20, 20);
+    Modificacao upgrade2 = new Modificacao("Coilovers", 15,  15, 20, 20);
+    Modificacao upgrade3 = new Modificacao("Kit de Travagem", 15,  15, 20, 20);
+    Modificacao upgrade4 = new Modificacao("ECU", 15,  15, 20, 20);
+    Modificacao upgrade5 = new Modificacao("Deslizamento Limitado", 15,  15, 20, 20);
+    Modificacao upgrade6 = new Modificacao("Quickshifter", 15,  15, 20, 20);
+    Modificacao upgrade7 = new Modificacao("Fibra de Carbono", 15,  15, 20, 20);
+    Modificacao upgrade8 = new Modificacao("Amortecedor", 15,  15, 20, 20);
+    Modificacao upgrade9 = new Modificacao("Aileron", 15, 15, 20, 20);
+    Modificacao upgrade10 = new Modificacao("Neon", 15, 15, 20, 20);
+
+
+
+    // ---------- HABILIDADE ----------
+
+    Habilidade skill1 = new Habilidade("Tyre Management", 15, 50);
+    Habilidade skill2 = new Habilidade("Racing Line", 15, 50);
+    Habilidade skill3 = new Habilidade("Trail Braking", 15, 50);
+    Habilidade skill4 = new Habilidade("Drafting", 15, 50);
+    Habilidade skill5 = new Habilidade("Heel-and-Toe", 15, 50);
+    Habilidade skill6 = new Habilidade("Countersteering", 15, 50);
+    Habilidade skill7 = new Habilidade("Body Steering", 15, 50);
+    Habilidade skill8 = new Habilidade("Sliding", 15, 50);
+    Habilidade skill9 = new Habilidade("Anti-Wheelie", 15, 50);
+    Habilidade skill10 = new Habilidade("Eagle-eye", 15, 50);
+
+
+
+    // Adicionar Habilidades na Oficina
+        workshop.adicionarItem(skill1);
+        workshop.adicionarItem(skill2);
+        workshop.adicionarItem(skill3);
+        workshop.adicionarItem(skill4);
+        workshop.adicionarItem(skill5);
+        workshop.adicionarItem(skill6);
+        workshop.adicionarItem(skill7);
+        workshop.adicionarItem(skill8);
+        workshop.adicionarItem(skill9);
+        workshop.adicionarItem(skill10);
+
+    // Adicionar Modificações na Oficina
+        workshop.adicionarItem(upgrade1);
+        workshop.adicionarItem(upgrade2);
+        workshop.adicionarItem(upgrade3);
+        workshop.adicionarItem(upgrade4);
+        workshop.adicionarItem(upgrade5);
+        workshop.adicionarItem(upgrade6);
+        workshop.adicionarItem(upgrade7);
+        workshop.adicionarItem(upgrade8);
+        workshop.adicionarItem(upgrade9);
+        workshop.adicionarItem(upgrade10);
+
+
+
     public void adicionarItem(ItemCorrida itemNovo){
         this.stock.add(itemNovo);
     }

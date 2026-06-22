@@ -13,9 +13,8 @@ public class Modificacao extends ItemCorrida {
     private double diminuicaoPeso;
     private ArrayList<String> carrosPermitidos;
 
-    public Modificacao(String nome, int precoFichasCorrida, String nome1, int precoFichasCorrida1, int diminuicaoDesgaste, double diminuicaoPeso) {
+    public Modificacao(String nome, int precoFichasCorrida, int precoFichasCorrida1, int diminuicaoDesgaste, double diminuicaoPeso) {
         super(nome, precoFichasCorrida);
-        this.nome = nome1;
         this.precoFichasCorrida = precoFichasCorrida1;
         this.diminuicaoDesgaste = diminuicaoDesgaste;
         this.diminuicaoPeso = diminuicaoPeso;
