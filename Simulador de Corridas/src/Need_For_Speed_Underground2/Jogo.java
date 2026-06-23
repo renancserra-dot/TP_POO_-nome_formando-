@@ -48,10 +48,6 @@ public class Jogo {
         //todo
     }
 
-    public void adicionarVeiculo(Veiculo veiculoNovo){
-        this.garagem.add(veiculoNovo);
-    }
-
     // ---------- CARROS ----------
 
     Carro car1 = new Carro("Alpha Romeo", "SportsWagon 156", 200, 150,100,1800, STATION_WAGON);
@@ -86,9 +82,6 @@ public class Jogo {
     Mota mota12 = new Mota("Benelli", "TRK 502", 65, 30, 50, 1000, SCOOTER);
     Mota mota13 = new Mota("Royal Enfield", "Meteor 350", 72, 30, 50, 1000, ATV);
     Mota mota14 = new Mota("Keeway", "Superlight 125", 62, 30, 50, 1000, STANDARD);
-
-
-    Oficina.adicionarVeiculo(car1);
 
 
 }

@@ -54,7 +54,14 @@ public class Piloto {
         //seguidamente aplica os efeitos no Veiculo do Piloto.
     }
 
-    public void corrida() {
+    public double corrida(Pista pistaAtual) {
+
+        double tempoTotal = 0;
+
+
+
+
+        return tempoTotal;
         //todo
         //que recebe como parâmetro uma pista e retorna o tempo total que o
         //piloto demorou a percorrer a pista no seu Veiculo, de acordo com as seguintes regras:
