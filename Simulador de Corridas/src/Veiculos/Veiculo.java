@@ -72,20 +72,27 @@ public abstract class Veiculo {
         this.preco = preco;
     }
 
-    public void exibirDetalhes() {
-        System.out.println("---- Detalhes do veículo ----");
-        System.out.println("Marca: " + this.marca + " | Modelo: " + this.modelo + " | Potencia CV: " + this.potenciaCV + " | Peso: " + this.pesoKg + " .Kg | Desgaste: " + this.desgaste + " | Preço: " + this.preco + " €.");
-
+    public ArrayList<ItemCorrida> getInventarioItem() {
+        return inventarioItem;
     }
 
-    /**
-     * Metodo para adicionar item ao Veiculo
-     * @param itemNovo
-     */
+    public void mostrarDetalhes() {
+        System.out.println("---- Detalhes do veículo ----");
+        System.out.println("Marca: " + this.marca
+                + " | Modelo: " + this.modelo
+                + " | Potência: " + this.potenciaCV + " CV"
+                + " | Peso: " + this.pesoKg + " Kg"
+                + " | Desgaste: " + this.desgaste
+                + " | Preço: " + this.preco + " fichas");
+    }
 
     public void adicionarItem(ItemCorrida itemNovo) {
         this.inventarioItem.add(itemNovo);
         System.out.println("Item " + itemNovo.getNome() + " adicionado ao veículo.");
     }
 
+
+    public void aumentarDesgaste(int quantidade) {
+        this.desgaste += quantidade;
+    }
 }

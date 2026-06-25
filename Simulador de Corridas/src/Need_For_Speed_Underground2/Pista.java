@@ -16,6 +16,7 @@ public class Pista {
         this.tempoRecordeSeg = tempoRecordeSeg;
         this.distanciaVoltaM = distanciaVoltaM;
         this.quantidadeVoltas = quantidadeVoltas;
+        this.momentosPista = new ArrayList<>();
     }
 
     public String getNome() {
@@ -66,16 +67,16 @@ public class Pista {
         this.momentosPista = momentosPista;
     }
 
-    public void exibirDetalhes() {
-        System.out.println("----- NEED FOR SPEED UNDERGROUND -----");
-        System.out.println("Nome: " + this.nome + " | Time: " + this.tempo + " | Record time: " + this.tempoRecordeSeg + " .sec | Distance: " + this.distanciaVoltaM + " | Laps: " + this.quantidadeVoltas);
+    public void adicionarMomento(Momento momento) {
+        this.momentosPista.add(momento);
     }
 
-    Pista pista1 = new Pista("Tokyo Drift", 200, 200, 20,2);
-    Pista pista2 = new Pista("Highway to Hell", 200, 200, 20,2);
-    Pista pista3 = new Pista("Circuit de Monaco", 200, 200, 20,2);
-    Pista pista4 = new Pista("The Death Course", 200, 200, 20,2);
-    Pista pista5 = new Pista("The Wheel of Power", 200, 200, 20,2);
-    Pista pista6 = new Pista("Casa Cristo", 200, 200, 20,2);
-    Pista pista7 = new Pista("The Grid", 200, 200, 20,2);
+    public void mostrarDetalhes() {
+        System.out.println("----- NEED FOR SPEED UNDERGROUND -----");
+        System.out.println("Nome: " + this.nome
+                + " | Tempo recorde: " + this.tempoRecordeSeg + " seg"
+                + " | Distância por volta: " + this.distanciaVoltaM + " m"
+                + " | Voltas: " + this.quantidadeVoltas
+                + " | Momentos: " + this.momentosPista.size());
+    }
 }

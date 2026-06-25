@@ -1,29 +1,55 @@
 package PimpMyRide;
 
-import Enums.TipoCarro;
-import Veiculos.Carro;
-
 import java.util.ArrayList;
 
 public class Modificacao extends ItemCorrida {
 
-    private String nome;
-    private int precoFichasCorrida;
     private int diminuicaoDesgaste;
     private double diminuicaoPeso;
     private ArrayList<String> carrosPermitidos;
 
-    public Modificacao(String nome, int precoFichasCorrida, int precoFichasCorrida1, int diminuicaoDesgaste, double diminuicaoPeso) {
+    public Modificacao(String nome, int precoFichasCorrida, int diminuicaoDesgaste, double diminuicaoPeso) {
         super(nome, precoFichasCorrida);
-        this.precoFichasCorrida = precoFichasCorrida1;
         this.diminuicaoDesgaste = diminuicaoDesgaste;
+        this.diminuicaoPeso = diminuicaoPeso;
+        this.carrosPermitidos = new ArrayList<>();
+    }
+
+    public int getDiminuicaoDesgaste() {
+        return diminuicaoDesgaste;
+    }
+
+    public void setDiminuicaoDesgaste(int diminuicaoDesgaste) {
+        this.diminuicaoDesgaste = diminuicaoDesgaste;
+    }
+
+    public double getDiminuicaoPeso() {
+        return diminuicaoPeso;
+    }
+
+    public void setDiminuicaoPeso(double diminuicaoPeso) {
         this.diminuicaoPeso = diminuicaoPeso;
     }
 
-    public void exibirDetalhes() {
-
-        System.out.println("---- Detalhes para Modificação ----");
-        System.out.println("Nome: " + this.nome + " | Preço em fichas de corrida: " + this.precoFichasCorrida + " .€ | Desgaste: " + this.diminuicaoDesgaste + " Peso: " + this.diminuicaoPeso + " .Kg");
+    public ArrayList<String> getCarrosPermitidos() {
+        return carrosPermitidos;
     }
 
+    public void setCarrosPermitidos(ArrayList<String> carrosPermitidos) {
+        this.carrosPermitidos = carrosPermitidos;
+    }
+
+    public void adicionarCarroPermitido(String tipoCarro) {
+        this.carrosPermitidos.add(tipoCarro);
+    }
+
+    @Override
+    public void mostrarDetalhes() {
+        System.out.println("---- Detalhes da Modificação ----");
+        System.out.println("Nome: " + this.getNome()
+                + " | Preço em fichas de corrida: " + this.getPrecoFichasCorrida()
+                + " | Redução de desgaste: " + this.diminuicaoDesgaste
+                + " | Redução de peso: " + this.diminuicaoPeso + " Kg"
+                + " | Carros permitidos: " + this.carrosPermitidos);
+    }
 }

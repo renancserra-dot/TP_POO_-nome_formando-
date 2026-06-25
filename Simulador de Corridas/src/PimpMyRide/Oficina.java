@@ -7,29 +7,25 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-
 public class Oficina {
     private ArrayList<Veiculo> garagem;
     private ArrayList<ItemCorrida> stock;
 
     public Oficina() {
-        this.garagem=new ArrayList<Veiculo>();
-        this.stock=new ArrayList<ItemCorrida>();
-
+        this.garagem = new ArrayList<Veiculo>();
+        this.stock = new ArrayList<ItemCorrida>();
 
         // ---------- MODIFICAÇÃO ----------
-        Modificacao upgrade1 = new Modificacao("Pneus Slick", 15,  15, 20, 20);
-        Modificacao upgrade2 = new Modificacao("Coilovers", 15,  15, 20, 20);
-        Modificacao upgrade3 = new Modificacao("Kit de Travagem", 15,  15, 20, 20);
-        Modificacao upgrade4 = new Modificacao("ECU", 15,  15, 20, 20);
-        Modificacao upgrade5 = new Modificacao("Deslizamento Limitado", 15,  15, 20, 20);
-        Modificacao upgrade6 = new Modificacao("Quickshifter", 15,  15, 20, 20);
-        Modificacao upgrade7 = new Modificacao("Fibra de Carbono", 15,  15, 20, 20);
-        Modificacao upgrade8 = new Modificacao("Amortecedor", 15,  15, 20, 20);
-        Modificacao upgrade9 = new Modificacao("Aileron", 15, 15, 20, 20);
-        Modificacao upgrade10 = new Modificacao("Neon", 15, 15, 20, 20);
-
-
+        Modificacao upgrade1 = new Modificacao("Pneus Slick", 15, 20, 20);
+        Modificacao upgrade2 = new Modificacao("Coilovers", 15, 20, 20);
+        Modificacao upgrade3 = new Modificacao("Kit de Travagem", 15, 20, 20);
+        Modificacao upgrade4 = new Modificacao("ECU", 15, 20, 20);
+        Modificacao upgrade5 = new Modificacao("Deslizamento Limitado", 15, 20, 20);
+        Modificacao upgrade6 = new Modificacao("Quickshifter", 15, 20, 20);
+        Modificacao upgrade7 = new Modificacao("Fibra de Carbono", 15, 20, 20);
+        Modificacao upgrade8 = new Modificacao("Amortecedor", 15, 20, 20);
+        Modificacao upgrade9 = new Modificacao("Aileron", 15, 20, 20);
+        Modificacao upgrade10 = new Modificacao("Neon", 15, 20, 20);
 
         // ---------- HABILIDADE ----------
         Habilidade skill1 = new Habilidade("Tyre Management", 15, 50);
@@ -42,7 +38,6 @@ public class Oficina {
         Habilidade skill8 = new Habilidade("Sliding", 15, 50);
         Habilidade skill9 = new Habilidade("Anti-Wheelie", 15, 50);
         Habilidade skill10 = new Habilidade("Eagle-eye", 15, 50);
-
 
         // Adicionar Habilidades na Oficina
         this.adicionarItem(skill1);
@@ -67,99 +62,105 @@ public class Oficina {
         this.adicionarItem(upgrade8);
         this.adicionarItem(upgrade9);
         this.adicionarItem(upgrade10);
-
     }
 
-    public void adicionarItem(ItemCorrida itemNovo){
+    public ArrayList<Veiculo> getGaragem() {
+        return garagem;
+    }
+
+    public ArrayList<ItemCorrida> getStock() {
+        return stock;
+    }
+
+    public void adicionarItem(ItemCorrida itemNovo) {
         this.stock.add(itemNovo);
     }
 
-    public void adicionarVeiculo(Veiculo veiculoNovo){
+
+    public void adicionarVeiculo(Veiculo veiculoNovo) {
         this.garagem.add(veiculoNovo);
     }
 
+
     public void imprimirStock() {
-
-      Collections.shuffle(stock);
-
-      int limite = Math.min(stock.size(), 6);
+        Collections.shuffle(stock);
+        int limite = Math.min(stock.size(), 6);
 
         for (int i = 0; i < limite; i++) {
-            stock.get(i).exibirDetalhes();
+            System.out.println("[" + i + "] ");
+            stock.get(i).mostrarDetalhes();
         }
     }
 
     public void imprimirGaragem() {
-
         Collections.shuffle(garagem);
+        int limite = Math.min(garagem.size(), 12);
 
-        for (int i = 0; i < 12; i++) {
-            System.out.println(garagem.get(i));
+        for (int i = 0; i < limite; i++) {
+            System.out.println("[" + i + "] ");
+            garagem.get(i).mostrarDetalhes();
         }
     }
 
-    public void venderItem(Piloto itemVendido) {
 
+    public void venderItem(Piloto itemVendido) {
         Scanner input = new Scanner(System.in);
 
         System.out.println("----- Item para Venda -----");
-        imprimirStock(); // invocar a funçao para mostrar o stock disponivel
+        imprimirStock();
 
-        int escolhaUtilizador = input.nextInt(); // escolha do utilizador no Scanner
+        System.out.println("Escolha o número do item que deseja comprar:");
+        int escolhaUtilizador = input.nextInt();
+        int limiteMostrado = Math.min(this.stock.size(), 6);
 
-       if (escolhaUtilizador < this.stock.size()) { // compara ao stock disponivel
+        if (escolhaUtilizador >= 0 && escolhaUtilizador < limiteMostrado) {
 
-            ItemCorrida item = this.stock.get(escolhaUtilizador); // obter o item do stock
+            ItemCorrida item = this.stock.get(escolhaUtilizador);
 
-           // Verificas as fichas do Piloto: se pode comprar
+
             if (itemVendido.getFichasCorrida() >= item.getPrecoFichasCorrida()) {
 
-                // Adiciona ao Veiculo Atual do Piloto o item comprado
-                // Chama o metodo de adicionarItem() criado na classe Veiculo
                 itemVendido.getVeiculoAtual().adicionarItem(item);
 
-                // Utilizo o set para mudar as fichas de corrida e decrementar o valor gasto
                 int saldoAtual = itemVendido.getFichasCorrida();
                 itemVendido.setFichasCorrida(saldoAtual - item.getPrecoFichasCorrida());
 
-                this.stock.remove(escolhaUtilizador); // Remove do stock a escolha do Piloto
+                this.stock.remove(escolhaUtilizador);
 
                 System.out.println("Venda do Item: " + item.getNome());
             } else {
                 System.out.println("Não tem saldo suficiente para a compra");
             }
-       } else { // Se a escolha não existir no Stock
-           System.out.println("Escolha inválida");
-       }
+        } else {
+            System.out.println("Escolha inválida");
+        }
     }
 
     public void venderVeiculo(Piloto veiculoVendido) {
-
         Scanner input = new Scanner(System.in);
 
         System.out.println("----- Veiculo para Venda -----");
-        this.imprimirGaragem(); // invocar o metodo para mostrar a garagem com os veiculos diponiveis
+        this.imprimirGaragem();
 
-        int escolhaUtilizador = input.nextInt(); // escolha do utilizador no Scanner
+        System.out.println("Escolha o número do veículo que deseja comprar:");
+        int escolhaUtilizador = input.nextInt();
 
-        if (escolhaUtilizador < this.garagem.size()) { // compara na garagem se esta disponivel
+        int limiteMostrado = Math.min(this.garagem.size(), 12);
 
-            Veiculo item = this.garagem.get(escolhaUtilizador); // obter o item da garagem
+        if (escolhaUtilizador >= 0 && escolhaUtilizador < limiteMostrado) {
 
-            // Verificas as fichas do Piloto: se pode comprar
-            // preço do Veiculo
+            Veiculo item = this.garagem.get(escolhaUtilizador);
+
             if (veiculoVendido.getFichasCorrida() >= item.getPreco()) {
 
-                // Uso o 'set' para mudar o veiculo do piloto
                 veiculoVendido.setVeiculoAtual(item);
 
-                // Verificar as fichas do utilizador
                 int saldoAtual = veiculoVendido.getFichasCorrida();
                 veiculoVendido.setFichasCorrida(saldoAtual - item.getPreco());
 
                 this.garagem.remove(escolhaUtilizador);
 
-                System.out.println("Venda do veiculo: " + item.getMarca());
+                System.out.println("Venda do veículo: " + item.getMarca() + " | " + item.getModelo());
             } else {
                 System.out.println("Não tem saldo suficiente para a compra");
             }

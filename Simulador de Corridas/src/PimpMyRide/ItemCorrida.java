@@ -26,7 +26,7 @@ public abstract class ItemCorrida {
         this.precoFichasCorrida = precoFichasCorrida;
     }
 
-    public void exibirDetalhes() {
-        System.out.println(this.nome + " " + this.precoFichasCorrida);
+    public void mostrarDetalhes() {
+        System.out.println("Nome: " + this.nome + " | Preço: " + this.precoFichasCorrida);
     }
 }
